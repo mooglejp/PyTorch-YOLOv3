@@ -143,5 +143,5 @@ if __name__ == "__main__":
             plt.savefig(f"output/{filename}.png", bbox_inches="tight", pad_inches=0.0)
             plt.close()
 
-            img = cv2.imread(f"output/{filename}.png", cv2.IMREAD_UNCHANGED)
-            cv2_imshow(img)
+            tmp = cv2.imread(f"output/{filename}.png", cv2.IMREAD_UNCHANGED)
+            cv2_imshow(tmp)
