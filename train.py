@@ -36,6 +36,7 @@ if __name__ == "__main__":
     parser.add_argument("--evaluation_interval", type=int, default=1, help="interval evaluations on validation set")
     parser.add_argument("--compute_map", default=False, help="if True computes mAP every tenth batch")
     parser.add_argument("--multiscale_training", default=False, help="allow for multi-scale training")
+    parser.add_argument("--verbose", default=False, help="show progress")
     opt = parser.parse_args()
     print(opt)
 
@@ -143,7 +144,8 @@ if __name__ == "__main__":
             time_left = datetime.timedelta(seconds=epoch_batches_left * (time.time() - start_time) / (batch_i + 1))
             log_str += f"\n---- ETA {time_left}"
 
-            print(log_str)
+            if opt.verbose:
+                print(log_str)
 
             model.seen += imgs.size(0)
 
